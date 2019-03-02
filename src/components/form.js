@@ -1,17 +1,26 @@
-import React,{Component} from 'react';
+import React,{ Component } from 'react';
 
 class Form extends Component {
+    state = { //el state siempre es un objeto
+      cantidad: '',
+      plazo: ''
+    }
 
+    updateState = () => {
+
+    }
+    
     render() {
         return (
             <form>
               <div>
-                <label>Cantidad Prestamo</label>
+                <label>Cantidad Prestamo:</label>
                 <input 
                   className="u-full-width"
                   type="number" 
                   name="cantidad" 
-                  placeholder="Ejemplo: 3000" 
+                  placeholder="Ejemplo: 3000"
+                  onChange={this.updateState}
                 />
               </div>  
               <div>
