@@ -1,28 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component, Fragment } from 'react';
+import Form from './components/form';
+import './normalize.css';
+import './skeleton.css';
+
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <h1>Cotizador de prestamos</h1>
+        <div className="container"> 
+          <Form />
+        </div>
       </div>
     );
   }
 }
 
 export default App;
+
+//El component Fragment nos permite retornar multiples componentes sin necesidad que esten dentro de un elemento
+//padre como un div, pero no va a crear un div que rodee cada uno de esos componentes
+/*
+<Fragment>
+  <Form />
+  <Form />
+  <Form />
+<Fragment />
+*/ 
