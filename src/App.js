@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Form from './components/form';
+import { calculateTotal } from './helpers';
 import './normalize.css';
 import './skeleton.css';
 
@@ -7,8 +8,9 @@ import './skeleton.css';
 class App extends Component {
 
   dataLoans = (quantity, term) => {
-    console.log('Desde app.js');
-    console.log(`${quantity} ${term}`);
+    // console.log('Desde app.js');
+    // console.log(`${quantity} ${term}`);
+    calculateTotal()
   }
 
   render() {
