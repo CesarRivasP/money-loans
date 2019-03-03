@@ -30,7 +30,7 @@ h1 {
   font-weight: bold;
 }
 
-form {
+form, .messages {
   max-width: 600px;
   margin: 0 auto; /*Para que quede centrado*/
   padding: 2rem;
@@ -43,4 +43,13 @@ form label {
 input[type="submit"]:disabled {
   opacity: .2;
   color: black;
+}
+
+.messages {
+  text-align: center;
+}
+
+.result {
+  border: 2px solid #00b0d7;
+  padding: 3rem 0;
 }
