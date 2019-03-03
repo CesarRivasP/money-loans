@@ -32,7 +32,9 @@ class App extends Component {
         <h1>Cotizador de prestamos</h1>
         <div className="container"> 
           <Form dataLoans={this.dataLoans} />
-          <Result quantity={quantity} term={term} total={total} />
+          <div className="messages">
+            <Result quantity={quantity} term={term} total={total} />
+          </div>
         </div>
       </div>
     );
