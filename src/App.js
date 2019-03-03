@@ -10,7 +10,7 @@ class App extends Component {
   dataLoans = (quantity, term) => {
     // console.log('Desde app.js');
     // console.log(`${quantity} ${term}`);
-    calculateTotal()
+    calculateTotal(quantity, term);
   }
 
   render() {
