@@ -6,11 +6,22 @@ import './skeleton.css';
 
 
 class App extends Component {
+  state = {
+    total: '',
+    quantity: '',
+    term: ''
+  }
 
   dataLoans = (quantity, term) => {
     // console.log('Desde app.js');
     // console.log(`${quantity} ${term}`);
-    calculateTotal(quantity, term);
+    const total = calculateTotal(quantity, term);
+
+    this.setState({
+      total,
+      quantity,
+      term
+    })
   }
 
   render() {
