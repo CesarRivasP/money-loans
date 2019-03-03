@@ -2,18 +2,18 @@ import React,{ Component } from 'react';
 
 class Form extends Component {
     state = { //el state siempre es un objeto
-      cantidad: '',
-      plazo: ''
+      quantity: '',
+      term: ''
     }
 
     updateState = (e) => {
       //e.target nos pasa sobre que elemento se esta escribiendo
       // console.log(e.target.value);
       //console.log(this.state);
-      // this.state.cantidad = e.target.value NO ES RECOMENDABLE
+      // this.state.quantity = e.target.value NO ES RECOMENDABLE
       
      // this.setState({ 
-       // cantidad: e.target.value 
+       // quantity: e.target.value 
       //})
 
       const { name, value } = e.target;
@@ -24,33 +24,42 @@ class Form extends Component {
     }
 
     enableSubmit = () => {
-      const { cantidad, plazo } =  this.state;
+      const { quantity, term } =  this.state;
 
-      const notValid = !cantidad || !plazo; // si no hay cantidad o no hay plazo
+      const notValid = !quantity || !term; // si no hay quantity o no hay term
 
      //  console.log(notValid); //si es true, esta desabilitado
       return notValid;
     }
 
+    calculateLoan = (e) => {
+      e.preventDefault();
+      console.log(`Enviando form`);
+      const { quantity, term } = this.state;
+
+      this.props.dataLoans(quantity, term);
+      
+    }
+
     render() {
-      const { cantidad } = this.state;
+      const { quantity } = this.state;
       return (
-          <form>
+          <form onSubmit={this.calculateLoan}>
             <div>
-              <label>Cantidad Prestamo: {cantidad}</label>
+              <label>quantity Prestamo: {quantity}</label>
               <input 
                 className="u-full-width"
                 type="number" 
-                name="cantidad" 
+                name="quantity" 
                 placeholder="Ejemplo: 3000"
                 onChange={this.updateState}
               />
             </div>  
             <div>
-              <label>Plazo para pagar</label>
+              <label>term para pagar</label>
               <select 
                 className="u-full-width" 
-                name="plazo" 
+                name="term" 
                 placeholder="Ejemplo: 3000" 
                 onChange={this.updateState} >
                   <option value="">Seleccionar</option>
@@ -63,7 +72,7 @@ class Form extends Component {
             </div> 
             <div>
               <input 
-                disabled={this.enableSubmit()}
+                disabled={this.enableSubmit()}  //Esta funcion se va a estar ejecutando todo el tiempo, escuchando variaciones en el state
                 className="u-full-width button-primary" 
                 type="submit" 
                 value="calculate" />
