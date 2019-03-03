@@ -26,12 +26,13 @@ class App extends Component {
   }
 
   render() {
+    const { quantity, term, total } = this.state;
     return (
       <div>
         <h1>Cotizador de prestamos</h1>
         <div className="container"> 
           <Form dataLoans={this.dataLoans} />
-          <Result />
+          <Result quantity={quantity} term={term} total={total} />
         </div>
       </div>
     );
