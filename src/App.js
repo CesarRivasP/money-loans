@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import Form from './components/form';
+import Result from './components/result';
 import { calculateTotal } from './helpers';
 import './normalize.css';
 import './skeleton.css';
@@ -30,6 +31,7 @@ class App extends Component {
         <h1>Cotizador de prestamos</h1>
         <div className="container"> 
           <Form dataLoans={this.dataLoans} />
+          <Result />
         </div>
       </div>
     );
