@@ -5,12 +5,18 @@ import './skeleton.css';
 
 
 class App extends Component {
+
+  dataLoans = (quantity, term) => {
+    console.log('Desde app.js');
+    console.log(`${quantity} ${term}`);
+  }
+
   render() {
     return (
       <div>
         <h1>Cotizador de prestamos</h1>
         <div className="container"> 
-          <Form />
+          <Form dataLoans={this.dataLoans} />
         </div>
       </div>
     );
