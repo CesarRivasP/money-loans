@@ -46,7 +46,7 @@ class Form extends Component {
       return (
           <form onSubmit={this.calculateLoan}>
             <div>
-              <label>quantity Prestamo: {quantity}</label>
+              <label>Cantidad del Prestamo: {quantity}</label>
               <input 
                 className="u-full-width"
                 type="number" 
@@ -56,7 +56,7 @@ class Form extends Component {
               />
             </div>  
             <div>
-              <label>term para pagar</label>
+              <label>Plazo para pagar</label>
               <select 
                 className="u-full-width" 
                 name="term" 
