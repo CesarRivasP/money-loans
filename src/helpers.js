@@ -1,3 +1,5 @@
+import { deflate } from "zlib";
+
 export const calculateTotal = (quantity, term) => {
     console.log('Desde helpers');
     
@@ -21,12 +23,41 @@ export const calculateTotal = (quantity, term) => {
       totalQuantity = quantity * .10;
     }
 
-    console.log(totalQuantity);
+    // console.log(totalQuantity);
     
+    let totalTerm;
     //Meses
-    // 3 = 5%
-    // 6 = 10%
-    // 12 = 15%
-    // 24 = 20%
-    // 36 = 25%
+    switch (term) {
+      case 3:
+        // 3 = 5%
+        totalTerm = quantity * .05;
+        break;
+      case 6:
+        // 6 = 10%
+        totalTerm = quantity * .10;
+        break;
+      case 12:
+        // 12 = 15%
+        totalTerm = quantity * .15;
+        break;
+      case 24:
+        // 24 = 20%
+        totalTerm = quantity * .20;
+        break;
+      case 36:
+       // 36 = 25%
+        totalTerm = quantity * .25;
+        break;
+      default:
+        break;
+    }
+
+    //console.log(totalTerm);
+
+    let total;
+    total = quantity + totalQuantity + totalTerm;
+
+    //console.log(total);
+
+    return total; 
 }
