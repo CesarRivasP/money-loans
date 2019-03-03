@@ -1,6 +1,7 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component/*, Fragment*/ } from 'react';
 import Form from './components/form';
 import Result from './components/result';
+import Message from './components/message';
 import { calculateTotal } from './helpers';
 import './normalize.css';
 import './skeleton.css';
@@ -25,15 +26,25 @@ class App extends Component {
     })
   }
 
+  renderResult = (quantity, term, total) => {
+    return (
+      !total ? <Message /> :  <Result quantity={quantity} term={term} total={total} />
+    )
+  }
+
   render() {
+
     const { quantity, term, total } = this.state;
+
     return (
       <div>
         <h1>Cotizador de prestamos</h1>
         <div className="container"> 
           <Form dataLoans={this.dataLoans} />
           <div className="messages">
-            <Result quantity={quantity} term={term} total={total} />
+            {
+              this.renderResult(quantity, term, total)
+            }
           </div>
         </div>
       </div>
