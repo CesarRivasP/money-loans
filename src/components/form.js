@@ -23,6 +23,15 @@ class Form extends Component {
       })
     }
 
+    enableSubmit = () => {
+      const { cantidad, plazo } =  this.state;
+
+      const notValid = !cantidad || !plazo; // si no hay cantidad o no hay plazo
+
+     //  console.log(notValid); //si es true, esta desabilitado
+      return notValid;
+    }
+
     render() {
       const { cantidad } = this.state;
       return (
@@ -53,7 +62,11 @@ class Form extends Component {
               </select>
             </div> 
             <div>
-              <input className="u-full-width button-primary" type="submit" value="calculate" />
+              <input 
+                disabled={this.enableSubmit()}
+                className="u-full-width button-primary" 
+                type="submit" 
+                value="calculate" />
             </div>
           </form>
       );
