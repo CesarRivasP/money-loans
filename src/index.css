@@ -39,3 +39,8 @@ form {
 form label {
   text-align: left;
 }
+
+input[type="submit"]:disabled {
+  opacity: .2;
+  color: black;
+}
